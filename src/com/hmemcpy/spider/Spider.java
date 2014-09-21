@@ -10,6 +10,8 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -27,11 +29,16 @@ public class Spider {
 		Matcher matcher = pattern.matcher(content);
 
 		boolean isFind = matcher.find();
+		
+		List<String> urls = new ArrayList<String>();
+		
 		while (isFind) {
 			String murl = matcher.group(1);
 			System.out.println(murl);
 
-			Util.writeToXML(murl);
+			//Util.writeToXML(murl);
+			
+			urls.add(murl);
 			
 			if (isDownload) {
 				try {
@@ -46,6 +53,8 @@ public class Spider {
 
 			isFind = matcher.find();
 		}
+		
+		Util.writeToXML(urls);
 	}
 
 	private String sendGet(String url) {
