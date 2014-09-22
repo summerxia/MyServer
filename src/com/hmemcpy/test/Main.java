@@ -7,7 +7,7 @@ import com.hmemcpy.spider.Spider;
 
 public class Main {
 	public static void main(String[] args) throws IOException{
-		//new Spider().download("", "", false, "");
+		new Spider().download("", "", false, "");
 		
 //		File file = new File("");
 //		
