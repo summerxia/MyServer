@@ -22,7 +22,7 @@ public class Util {
 			document = reader.read(new File("list.xml"));
 			root = document.getRootElement();
 			root.clearContent();
-		} catch (DocumentException e1) {
+		} catch (DocumentException e1) {          
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
